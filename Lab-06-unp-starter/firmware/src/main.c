@@ -84,7 +84,8 @@ extern void asmFunc(uint32_t);
 
 extern uint32_t a_value;
 extern uint32_t b_value;
-
+// make the variable nameStrPtr available to the C program
+extern uint32_t nameStrPtr;
 
 // set this to 0 if using the simulator. BUT note that the simulator
 // does NOT support the UART, so there's no way to print output.
@@ -343,11 +344,19 @@ int main ( void )
         {
             isRTCExpired = false;
             isUSARTTxComplete = false;
+            
+            uint32_t numPointsMax = 18;
+            uint32_t pointsScored = numPointsMax * totalPassCount / totalTests;
+            
             snprintf((char*)uartTxBuffer, MAX_PRINT_LEN,
-                    "========= Post-test Idle Cycle Number: %ld\r\n"
+                    "========= %s: Lab 6 Unpack: ALL TESTS COMPLETE, Idle Cycle Number: %ld\r\n"
                     "Summary of tests: %ld of %ld tests passed\r\n"
+                    "Final score for test cases: %ld of %ld points\r\n"
                     "\r\n",
-                    idleCount, totalPassCount, totalTests); 
+                    (char *) nameStrPtr, idleCount, 
+                    totalPassCount, totalTests,
+                    pointsScored, numPointsMax); 
+
 
 #if USING_HW 
             DMAC_ChannelTransfer(DMAC_CHANNEL_0, uartTxBuffer, \
