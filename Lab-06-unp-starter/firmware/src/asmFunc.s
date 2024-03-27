@@ -19,7 +19,7 @@ nameStr: .asciz "Inigo Montoya"
 /* initialize a global variable that C can access to print the nameStr */
 .global nameStrPtr
 .type nameStrPtr,%gnu_unique_object
-nameStrPtr: .word nameStr   /* Assign the mem loc of nameStr to nameSrPtr */
+nameStrPtr: .word nameStr   /* Assign the mem loc of nameStr to nameStrPtr */
 
 .global a_value,b_value
 .type a_value,%gnu_unique_object
