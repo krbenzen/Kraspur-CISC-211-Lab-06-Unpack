@@ -16,6 +16,8 @@
 /*** STUDENTS: Change the next line to your name!  **/
 nameStr: .asciz "Inigo Montoya"  
  
+.align    /* ensure following vars are allocated on word-aliigned addresses */
+
 /* initialize a global variable that C can access to print the nameStr */
 .global nameStrPtr
 .type nameStrPtr,%gnu_unique_object
