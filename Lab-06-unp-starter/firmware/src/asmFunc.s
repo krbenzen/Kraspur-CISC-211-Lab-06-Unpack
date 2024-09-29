@@ -16,7 +16,7 @@
 /*** STUDENTS: Change the next line to your name!  **/
 nameStr: .asciz "Inigo Montoya"  
  
-.align    /* ensure following vars are allocated on word-aliigned addresses */
+.align    /* ensure following vars are allocated on word-aligned addresses */
 
 /* initialize a global variable that C can access to print the nameStr */
 .global nameStrPtr
