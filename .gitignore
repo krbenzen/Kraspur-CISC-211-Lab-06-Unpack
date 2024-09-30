@@ -40,3 +40,4 @@
 *.c~
 *.s~
 *.swp
+*.DS_Store
