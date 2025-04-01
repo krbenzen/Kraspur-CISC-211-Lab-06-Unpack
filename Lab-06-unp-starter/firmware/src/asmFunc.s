@@ -14,7 +14,7 @@
 .type nameStr,%gnu_unique_object
     
 /*** STUDENTS: Change the next line to your name!  **/
-nameStr: .asciz "Inigo Montoya"  
+nameStr: .asciz "Benzen Raspur"  
  
 .align    /* ensure following vars are allocated on word-aligned addresses */
 
@@ -72,6 +72,15 @@ asmFunc:
      * Use it to test the C test code */
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
+
+    asr     r4, r0, #16      /*Sign-extended top A*/
+    sxth    r5, r0           /*Sign-extended bottom B*/
+
+    ldr     r1, =a_value
+    str     r4, [r1]
+
+    ldr     r1, =b_value
+    str     r5, [r1]
 
     
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
